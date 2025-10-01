@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Title Tag -->
+    <title>PDF Synthesizer - All-in-One PDF Tools for Converting, Editing & More</title>
+    <!-- SEO: Meta Description -->
+    <meta name="description" content="Your complete, user-friendly PDF toolkit. Merge, split, compress, convert PDF to Word, Excel, JPG, and edit your documents online. Fast, secure, and free.">
+    
+    <!-- Google Fonts: Poppins for headings, Open Sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Boxicons for clean line icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <style>
+        /* --- 1. Global Styles & Color Palette --- */
+        :root {
+            --primary-color: #EBF5FF; /* Light Blue */
+            --secondary-color: #FFF0E5; /* Light Peach */
+            --accent-color: #A8D8FF;   /* Darker Blue for hover */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white-color: #FFFFFF;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--white-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- 2. Navigation Bar (Header) --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        .logo i {
+            color: #4A90E2; 
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions .btn-login {
+            margin-right: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .nav-actions .btn-signup {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+        }
+
+        /* --- 3. Hero Section --- */
+        .hero {
+            background-color: var(--primary-color);
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 0; 
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* --- 4. The Tools Grid --- */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .tool-card {
+            background-color: var(--primary-color);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            height: 100%;
+        }
+        
+        .tool-link:hover .tool-card {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            background-color: var(--accent-color);
+        }
+
+
+        .tool-card i {
+            font-size: 3rem;
+            color: #4A90E2;
+            margin-bottom: 15px;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .tool-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* --- 5. How It Works Section --- */
+        #how-it-works {
+            background-color: #f9f9f9;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            gap: 40px;
+        }
+        
+        .step-card {
+            flex: 1;
+        }
+
+        .step-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            border: 4px dashed var(--accent-color);
+        }
+
+        .step-icon-wrapper i {
+            font-size: 3rem;
+            color: #4A90E2;
+        }
+        
+        .step-card h3 {
+            margin-bottom: 10px;
+        }
+        
+        .step-card p {
+            color: var(--text-light);
+        }
+        
+        /* --- 6. Features Section --- */
+        .features-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+             gap: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .feature-item i {
+            font-size: 2.5rem;
+            color: #4A90E2;
+            margin-top: 5px;
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+        }
+
+        /* --- 7. Footer --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white-color);
+            padding: 50px 0;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-about, .footer-links, .footer-social {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-about h3, .footer-links h3, .footer-social h3 {
+            color: var(--white-color);
+            margin-bottom: 15px;
+        }
+        
+        .footer-brand {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .footer-about p {
+            color: #ccc;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-icons a {
+            color: var(--white-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+        
+        /* --- 8. Responsive Design --- */
+        @media (max-width: 768px) {
+            h2 { font-size: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            
+            .nav-links, .nav-actions { display: none; }
+            
+            .steps-container { flex-direction: column; }
+            .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .footer-container { flex-direction: column; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ======== HEADER ======== -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class='bx bxs-file-pdf'></i> PDF Synthesizer</a>
+                <ul class="nav-links">
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#" class="btn-login">Login</a>
+                    <a href="#" class="btn btn-signup">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ======== HERO SECTION ======== -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <h1>Your Complete PDF Toolkit, Simplified</h1>
+                <p>Choose a tool from our collection below and start working with your PDFs instantly.</p>
+            </div>
+        </section>
+
+        <!-- ======== TOOLS GRID SECTION ======== -->
+        <section id="tools">
+            <div class="container">
+                <h2>All The PDF Tools You Need</h2>
+                <p class="section-subtitle">Quickly access the tool you need to get your work done faster and smarter. Just click on a tool to begin.</p>
+                
+                <div class="tools-grid">
+                    <!-- Conversion Tools -->
+                    <a href="/pdf-to-word" class="tool-link"><div class="tool-card"><i class='bx bxs-file-word'></i> <h3>PDF to Word</h3> <p>Convert your PDFs to editable Word documents.</p></div></a>
+                    <a href="/pdf-to-excel" class="tool-link"><div class="tool-card"><i class='bx bxs-file-spreadsheet'></i> <h3>PDF to Excel</h3> <p>Turn your PDF data into easy-to-edit Excel sheets.</p></div></a>
+                    <a href="/pdf-to-powerpoint" class="tool-link"><div class="tool-card"><i class='bx bxs-file-powerpoint'></i> <h3>PDF to PowerPoint</h3> <p>Transform PDFs into presentation-ready PPTX slides.</p></div></a>
+                    <a href="/pdf-to-jpg" class="tool-link"><div class="tool-card"><i class='bx bxs-file-image'></i> <h3>PDF to JPG</h3> <p>Extract pages from your PDF into high-quality JPG images.</p></div></a>
+                    
+                    <!-- Editing & Organizing Tools -->
+                    <a href="/merge-pdf" class="tool-link"><div class="tool-card"><i class='bx bx-merge'></i> <h3>Merge PDF</h3> <p>Combine multiple PDF files into a single, organized document.</p></div></a>
+                    <a href="/split-pdf" class="tool-link"><div class="tool-card"><i class='bx bx-git-commit'></i> <h3>Split PDF</h3> <p>Extract one or more pages from your PDF file.</p></div></a>
+                    <a href="/compress-pdf" class="tool-link"><div class="tool-card"><i class='bx bx-compress'></i> <h3>Compress PDF</h3> <p>Reduce the file size of your PDF while maintaining quality.</p></div></a>
+                    <a href="/edit-pdf" class="tool-link"><div class="tool-card"><i class='bx bx-edit-alt'></i> <h3>Edit PDF</h3> <p>Add text, images, shapes, and annotations to your PDF.</p></div></a>
+                    
+                    <!-- Security & Other Tools -->
+                    <a href="/protect-pdf" class="tool-link"><div class="tool-card"><i class='bx bx-lock-alt'></i> <h3>Protect PDF</h3> <p>Add a password to your PDF file to restrict access.</p></div></a>
+                    <a href="/unlock-pdf" class="tool-link"><div class="tool-card"><i class='bx bx-lock-open-alt'></i> <h3>Unlock PDF</h3> <p>Remove password protection from your PDF files.</p></div></a>
+                    <a href="/esign-pdf" class="tool-link"><div class="tool-card"><i class='bx bx-pen'></i><h3>eSign PDF</h3> <p>Sign your PDFs online or request signatures from others.</p></div></a>
+                    <a href="/ocr-pdf" class="tool-link"><div class="tool-card"><i class='bx bx-scan'></i> <h3>OCR PDF</h3> <p>Recognize text in scanned PDFs to make them searchable.</p></div></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== HOW IT WORKS SECTION ======== -->
+        <section id="how-it-works">
+            <div class="container">
+                <h2>Get Started in Three Easy Steps</h2>
+                <p class="section-subtitle">Our intuitive interface makes PDF processing a breeze for everyone.</p>
+                <div class="steps-container">
+                    <div class="step-card"><div class="step-icon-wrapper"><i class='bx bx-slider-alt'></i></div><h3>1. Choose Your Tool</h3><p>Select from our comprehensive list of PDF tools and adjust your settings.</p></div>
+                    <div class="step-card"><div class="step-icon-wrapper"><i class='bx bx-cloud-upload'></i></div><h3>2. Upload Your File</h3><p>Securely select or drag and drop your file into the tool's upload area.</p></div>
+                    <div class="step-card"><div class="step-icon-wrapper"><i class='bx bx-cloud-download'></i></div><h3>3. Download Your File</h3><p>Your processed file will be ready to download in just a few seconds.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== FEATURES SECTION ======== -->
+        <section id="features">
+            <div class="container">
+                <h2>Why Choose PDF Synthesizer?</h2>
+                <p class="section-subtitle">We focus on providing a seamless, secure, and efficient experience.</p>
+                <div class="features-grid">
+                    <div class="feature-item"><i class='bx bx-shield-quarter'></i><div><h3>Secure & Private</h3><p>We use SSL encryption and automatically delete your files after a few hours to protect your privacy.</p></div></div>
+                    <div class="feature-item"><i class='bx bx-devices'></i><div><h3>Cross-Platform</h3><p>Access our tools from any device with a modern web browser—no installation needed.</p></div></div>
+                    <div class="feature-item"><i class='bx bx-rocket'></i><div><h3>Fast & Reliable</h3><p>Our powerful servers process your files quickly, so you don't have to wait around.</p></div></div>
+                    <div class="feature-item"><i class='bx bx-collection'></i><div><h3>All-in-One Solution</h3><p>From conversion to compression, all the PDF tools you'll ever need are right here and easy to access.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======== FOOTER (UPDATED) ======== -->
+    <footer>
+        <div class="container">
+             <div class="footer-container">
+                <div class="footer-about">
+                    <h3 class="footer-brand"><i class='bx bxs-file-pdf'></i> PDF Synthesizer</h3>
+                    <p>Your one-stop solution for all PDF tasks. Simplifying document management for everyone.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class='bx bxl-telegram'></i></a>      <!-- Replaced Facebook -->
+                        <a href="#"><i class='bx bxl-youtube'></i></a>        <!-- Kept YouTube -->
+                        <a href="#"><i class='bx bxl-instagram'></i></a>      <!-- Replaced LinkedIn -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PDF Synthesizer. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
